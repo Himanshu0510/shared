@@ -1,5 +1,5 @@
 {
-  "name": "@HimanshuPro05/shared",
+  "name": "@Himanshu0510/shared",
   "version": "0.0.1",
   "description": "shared model for diffrent projects",
   "scripts": {
@@ -28,6 +28,6 @@
     "readable-stream": "npm:vite-compatible-readable-stream@^3.6.1"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.gitlab.com/HimanshuPro05"
+    "registry": "https://npm.pkg.github.com/Himanshu0510"
   }
 }
