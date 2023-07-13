@@ -1,5 +1,9 @@
 import React from "react";
 
-const Label = (props: any) => <>Welcome {props.name}</>;
+const Label = () => (
+  <>
+    Welcome <input type="text" />{" "}
+  </>
+);
 
 export default Label;
