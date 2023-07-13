@@ -26,8 +26,5 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "readable-stream": "npm:vite-compatible-readable-stream@^3.6.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/Himanshu0510"
   }
 }
