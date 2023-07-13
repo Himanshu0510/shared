@@ -1,8 +1,8 @@
 import React from "react";
 
-const Label = () => (
+const Label = (props: any) => (
   <>
-    Welcome <input type="text" />{" "}
+    Welcome {props.name} <input type="text" />{" "}
   </>
 );
 

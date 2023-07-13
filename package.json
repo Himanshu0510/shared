@@ -1,6 +1,6 @@
 {
   "name": "himanshushared",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "shared model for diffrent projects",
   "scripts": {
     "rollup": "rollup -c"
