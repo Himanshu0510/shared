@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 import { Checkbox } from "primereact/checkbox";
+import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
-import { Dialog } from "primereact/dialog";
 
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faRepeat } from "@fortawesome/free-solid-svg-icons";
+import Translate from "../Translation";
 
 interface ModalInputProps {
-  show?: boolean;
-  onSetting?: any;
+  show: boolean;
+  onSetting: any;
   columns: any;
   filter: boolean;
-  gridId?: string;
+  gridId: string;
   gridData: any;
-  onClose?: any;
+  onClose: any;
 }
 class Setting extends Component<ModalInputProps> {
   tableColumns: any;
@@ -52,11 +55,12 @@ class Setting extends Component<ModalInputProps> {
     const dataJson = JSON.parse(data.data.gridSettingDetailText);
     console.log("colom", dataJson);
 
-    if (dataJson.length == 0) {
-      this.tableColumns = this.state.columns;
-    } else {
-      this.tableColumns = dataJson;
-    }
+    // if(dataJson.length == 0 ){
+    //   this.tableColumns= this.state.columns
+    // }
+    // else{
+    this.tableColumns = dataJson;
+    // }
   }
 
   componentDidMount() {
@@ -151,7 +155,7 @@ class Setting extends Component<ModalInputProps> {
     };
 
     data1 = await axios.put("api/grid-user-settings/saveUpdateData", entity, {
-      headers: { menuItemId: this.props.gridId ? this.props.gridId : 1 },
+      headers: { menuItemId: this.props.gridId },
     });
     const dataJson = JSON.parse(data1.data.gridSettingDetailText);
     console.log(dataJson);
@@ -210,7 +214,9 @@ class Setting extends Component<ModalInputProps> {
             <h4>
               Filter:{" "}
               <Checkbox
-                onChange={() => this.setState({ filter: !this.state.filter })}
+                onChange={(event: any) =>
+                  this.setState({ filter: !this.state.filter })
+                }
                 checked={this.state.filter}
               ></Checkbox>
             </h4>
@@ -260,20 +266,23 @@ class Setting extends Component<ModalInputProps> {
               onClick={() => this.handleChange()}
               autoFocus
             >
-              Save
+              <FontAwesomeIcon icon={faCheck} />{" "}
+              <Translate contentKey="home.apply"></Translate>
             </Button>
             <Button
               className="btnStyle btn btn-info"
               onClick={() => this.resetSettings()}
             >
-              Reset
+              <FontAwesomeIcon icon={faRepeat} />{" "}
+              <Translate contentKey="home.reset"></Translate>
             </Button>
 
             <Button
               className="btnStyle btn btn-danger"
               onClick={() => this.handleCancel()}
             >
-              Cancel
+              <FontAwesomeIcon icon="times" />
+              <Translate contentKey="home.close"></Translate>
             </Button>
           </div>
         </div>
