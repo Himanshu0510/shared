@@ -4,6 +4,7 @@ import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
+import { Dialog } from "primereact/dialog";
 
 import axios from "axios";
 
@@ -192,76 +193,91 @@ class Setting extends Component<ModalInputProps> {
       console.log(e.value);
     };
     return (
-      <div>
-        <div className="modal-content">
-          <h4>
-            Filter:{" "}
-            <Checkbox
-              onChange={() => this.setState({ filter: !this.state.filter })}
-              checked={this.state.filter}
-            ></Checkbox>
-          </h4>
-          <DataTable
-            value={this.tableColumns}
-            reorderableRows
-            onRowReorder={(e: any) => rowReorder(e)}
-            responsiveLayout="scroll"
-            rows={this.tableColumns.length}
-          >
-            {/* <Column header="ID" body={props => <div>{props.rowIndex}</div>}></Column> */}
-            <Column rowReorder style={{ width: "3rem" }} />
-            <Column
-              field="header"
-              header="Columns"
-              editor={(options: any) => cellEditor(options)}
-              onCellEditComplete={onCellEditComplete}
-            />
-            <Column
-              field="width"
-              header="Width"
-              editor={(options: any) => cellEditor(options)}
-              onCellEditComplete={onCellEditComplete}
-            />
-            <Column
-              header="Display"
-              body={(data: any, props: any) => (
-                <div>
-                  <Checkbox
-                    onChange={(event: any) =>
-                      this.checkboxChange(event, props.rowIndex)
-                    }
-                    checked={data.visible}
-                    disabled={data.field === "documentTypeName" ? true : false}
-                  ></Checkbox>
-                </div>
-              )}
-            ></Column>
-            {/* {dynamicColumns} */}
-          </DataTable>
-        </div>
-        <div className="p-dialog-footer">
-          <Button
-            className="btnStyle btn btn-success"
-            onClick={() => this.handleChange()}
-            autoFocus
-          >
-            Save
-          </Button>
-          <Button
-            className="btnStyle btn btn-info"
-            onClick={() => this.resetSettings()}
-          >
-            Reset
-          </Button>
+      <Dialog
+        header="Settings"
+        //footer={this.footerContent}
+        visible={this.state.visible}
+        style={{ width: "80vw" }}
+        onHide={() => {
+          this.handleCancel();
+        }}
+        draggable={false}
+        resizable={false}
+        maximizable
+      >
+        <div>
+          <div className="modal-content">
+            <h4>
+              Filter:{" "}
+              <Checkbox
+                onChange={() => this.setState({ filter: !this.state.filter })}
+                checked={this.state.filter}
+              ></Checkbox>
+            </h4>
+            <DataTable
+              value={this.tableColumns}
+              reorderableRows
+              onRowReorder={(e: any) => rowReorder(e)}
+              responsiveLayout="scroll"
+              rows={this.tableColumns.length}
+            >
+              {/* <Column header="ID" body={props => <div>{props.rowIndex}</div>}></Column> */}
+              <Column rowReorder style={{ width: "3rem" }} />
+              <Column
+                field="header"
+                header="Columns"
+                editor={(options: any) => cellEditor(options)}
+                onCellEditComplete={onCellEditComplete}
+              />
+              <Column
+                field="width"
+                header="Width"
+                editor={(options: any) => cellEditor(options)}
+                onCellEditComplete={onCellEditComplete}
+              />
+              <Column
+                header="Display"
+                body={(data: any, props: any) => (
+                  <div>
+                    <Checkbox
+                      onChange={(event: any) =>
+                        this.checkboxChange(event, props.rowIndex)
+                      }
+                      checked={data.visible}
+                      disabled={
+                        data.field === "documentTypeName" ? true : false
+                      }
+                    ></Checkbox>
+                  </div>
+                )}
+              ></Column>
+              {/* {dynamicColumns} */}
+            </DataTable>
+          </div>
+          <div className="p-dialog-footer">
+            <Button
+              className="btnStyle btn btn-success"
+              onClick={() => this.handleChange()}
+              autoFocus
+            >
+              Save
+            </Button>
+            <Button
+              className="btnStyle btn btn-info"
+              onClick={() => this.resetSettings()}
+            >
+              Reset
+            </Button>
 
-          <Button
-            className="btnStyle btn btn-danger"
-            onClick={() => this.handleCancel()}
-          >
-            Cancel
-          </Button>
+            <Button
+              className="btnStyle btn btn-danger"
+              onClick={() => this.handleCancel()}
+            >
+              Cancel
+            </Button>
+          </div>
         </div>
-      </div>
+      </Dialog>
     );
   }
 }
