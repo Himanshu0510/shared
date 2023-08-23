@@ -1,6 +1,6 @@
 {
   "name": "@Himanshu0510/shared",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "shared model for diffrent projects",
   "scripts": {
     "rollup": "rollup -c"
