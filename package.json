@@ -1,6 +1,6 @@
 {
   "name": "@Himanshu0510/shared",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "shared model for diffrent projects",
   "scripts": {
     "rollup": "rollup -c"
@@ -17,13 +17,8 @@
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
     "@types/react": "^17.0.34",
-    "axios": "0.27.2",
-    "jQuery": "^1.7.4",
-    "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.28",
     "lodash": "4.17.21",
-    "primeicons": "^6.0.1",
-    "primereact": "^9.2.0",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "tslib": "^2.6.0",
