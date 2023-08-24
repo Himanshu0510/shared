@@ -1,6 +1,6 @@
 {
   "name": "@Himanshu0510/shared",
-  "version": "0.0.4",
+  "version": "0.1.10",
   "description": "shared model for diffrent projects",
   "scripts": {
     "rollup": "rollup -c"
@@ -8,25 +8,13 @@
   "author": "Himanshu Chauhan",
   "license": "",
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "6.2.0",
-    "@fortawesome/free-regular-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "6.2.0",
-    "@fortawesome/react-fontawesome": "0.2.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
-    "@types/react": "^17.0.34",
-    "jspdf-autotable": "^3.5.28",
-    "lodash": "4.17.21",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
-    "tslib": "^2.6.0",
-    "typescript": "^4.4.4"
-  },
-  "peerDependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "tslib": "^2.6.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

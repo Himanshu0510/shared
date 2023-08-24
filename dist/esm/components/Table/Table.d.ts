@@ -1,8 +1,2 @@
-import React from "react";
-import { Component } from "react";
-declare class Table extends Component<{
-    data: any;
-}> {
-    render(): React.JSX.Element;
-}
+declare const Table: (prop: any) => any;
 export default Table;

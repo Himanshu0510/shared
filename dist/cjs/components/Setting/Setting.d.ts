@@ -1,26 +1,24 @@
-import React, { Component } from "react";
+import { Component } from "react";
 interface ModalInputProps {
-    show?: boolean;
-    onSetting?: any;
+    show: boolean;
+    onSetting: any;
     columns: any;
     filter: boolean;
-    gridId?: string;
+    gridId: string;
     gridData: any;
-    onClose?: any;
+    onClose: any;
 }
 declare class Setting extends Component<ModalInputProps> {
     tableColumns: any;
+    constructor(props: any);
     state: {
-        visible: boolean | undefined;
+        visible: any;
         columns: any;
-        filter: boolean;
+        filter: any;
         gridData: any;
-        prop: Readonly<ModalInputProps> & Readonly<{
-            children?: React.ReactNode;
-        }>;
+        prop: any;
         language: string | null;
     };
-    constructor(props: any);
     getcolumns(): Promise<void>;
     componentDidMount(): void;
     toggle: (e: any) => void;
@@ -29,8 +27,8 @@ declare class Setting extends Component<ModalInputProps> {
     handleCancel(): void;
     resetSettings(): void;
     resetFromServer(): Promise<void>;
-    footerContent: () => React.JSX.Element;
+    footerContent: () => any;
     getTabelHeaderData(): Promise<void>;
-    render(): React.JSX.Element;
+    render(): any;
 }
 export default Setting;

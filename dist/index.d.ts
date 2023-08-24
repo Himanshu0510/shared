@@ -1,34 +1,25 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
-declare class Label extends Component {
-    state: {
-        name: string;
-    };
-    render(): React.JSX.Element;
-}
-
-interface ModalInputProps {
-    show?: boolean;
-    onSetting?: any;
+interface ModalInputProps$1 {
+    show: boolean;
+    onSetting: any;
     columns: any;
     filter: boolean;
-    gridId?: string;
+    gridId: string;
     gridData: any;
-    onClose?: any;
+    onClose: any;
 }
-declare class Setting extends Component<ModalInputProps> {
+declare class Setting extends Component<ModalInputProps$1> {
     tableColumns: any;
+    constructor(props: any);
     state: {
-        visible: boolean | undefined;
+        visible: any;
         columns: any;
-        filter: boolean;
+        filter: any;
         gridData: any;
-        prop: Readonly<ModalInputProps> & Readonly<{
-            children?: React.ReactNode;
-        }>;
+        prop: any;
         language: string | null;
     };
-    constructor(props: any);
     getcolumns(): Promise<void>;
     componentDidMount(): void;
     toggle: (e: any) => void;
@@ -37,15 +28,37 @@ declare class Setting extends Component<ModalInputProps> {
     handleCancel(): void;
     resetSettings(): void;
     resetFromServer(): Promise<void>;
-    footerContent: () => React.JSX.Element;
+    footerContent: () => any;
     getTabelHeaderData(): Promise<void>;
-    render(): React.JSX.Element;
+    render(): any;
 }
 
-declare class Table extends Component<{
-    data: any;
-}> {
-    render(): React.JSX.Element;
+declare const Translate: (prop: any) => any;
+
+declare const Table: (prop: any) => any;
+
+interface ModalInputProps {
+    show: boolean;
+    onSetting: any;
+    columns: any;
+}
+declare class ExportSetting extends Component<ModalInputProps> {
+    state: {
+        visible: any;
+        columns: any;
+        prop: any;
+    };
+    constructor(props: any);
+    toggle: (e: any) => void;
+    checkboxChange: (event: any, index: any) => void;
+    handleChange(): void;
+    handleCancel(): void;
+    resetSettings(): void;
+    render(): any;
 }
 
-export { Label, Setting, Table };
+declare const AskReason: (prop: any) => any;
+
+declare const Treetable: (prop: any) => any;
+
+export { AskReason, ExportSetting, Setting, Table, Translate, Treetable };

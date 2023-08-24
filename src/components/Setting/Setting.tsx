@@ -5,11 +5,10 @@ import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
-
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faRepeat } from "@fortawesome/free-solid-svg-icons";
-import Translate from "../Translation";
+import Translate from "../Translate";
 
 interface ModalInputProps {
   show: boolean;
@@ -22,14 +21,6 @@ interface ModalInputProps {
 }
 class Setting extends Component<ModalInputProps> {
   tableColumns: any;
-  state = {
-    visible: this.props.show,
-    columns: this.props.columns,
-    filter: this.props.filter,
-    gridData: this.props.gridData,
-    prop: this.props,
-    language: sessionStorage.getItem("Language"),
-  };
   constructor(props: any) {
     super(props);
     if (this.state.gridData.length === 0) {
@@ -39,6 +30,14 @@ class Setting extends Component<ModalInputProps> {
       console.log("Grid Api response");
     }
   }
+  state = {
+    visible: this.props.show,
+    columns: this.props.columns,
+    filter: this.props.filter,
+    gridData: this.props.gridData,
+    prop: this.props,
+    language: sessionStorage.getItem("Language"),
+  };
   async getcolumns() {
     console.log(this.state);
     let data: any = [];
